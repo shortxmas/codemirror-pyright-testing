@@ -3,7 +3,7 @@ import { EditorView } from "codemirror";
 import { EditorState } from "@codemirror/state";
 import { languageServer } from "codemirror-languageserver";
 import { basicSetup } from "codemirror";
-import {} from "@codemirror/language";
+import { python } from "@codemirror/lang-python";
 
 function App() {
   const editor = useRef(null);
@@ -20,7 +20,7 @@ function App() {
 
     const startState = EditorState.create({
       doc: "# Write your Python code here",
-      extensions: [basicSetup, ls],
+      extensions: [basicSetup, ls, python()],
     });
 
     const view = new EditorView({
