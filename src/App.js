@@ -4,6 +4,7 @@ import { EditorState } from "@codemirror/state";
 import { languageServer } from "codemirror-languageserver";
 import { basicSetup } from "codemirror";
 import { python } from "@codemirror/lang-python";
+import { lintGutter } from "@codemirror/lint";
 
 function App() {
   const editor = useRef(null);
@@ -20,7 +21,7 @@ function App() {
 
     const startState = EditorState.create({
       doc: "# Write your Python code here",
-      extensions: [basicSetup, ls, python()],
+      extensions: [basicSetup, ls, python(), lintGutter()],
     });
 
     const view = new EditorView({

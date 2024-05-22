@@ -5,6 +5,7 @@
   "dependencies": {
     "@codemirror/lang-python": "^6.1.6",
     "@codemirror/language": "^6.10.1",
+    "@codemirror/lint": "^6.7.1",
     "@codemirror/state": "^6.4.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
