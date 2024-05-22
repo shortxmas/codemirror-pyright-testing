@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import { EditorView } from "codemirror";
 import { EditorState } from "@codemirror/state";
-import { EditorView, basicSetup } from "@codemirror/basic-setup";
-import { python } from "@codemirror/lang-python"; // Import Python language support
 import { languageServer } from "codemirror-languageserver";
+import { basicSetup } from "codemirror";
+import {} from "@codemirror/language";
 
 function App() {
   const editor = useRef(null);
@@ -12,12 +13,14 @@ function App() {
 
     const ls = languageServer({
       serverUri,
+      rootUri: "file:///",
+      documentUri: "file:///index.js",
       languageId: "python",
     });
 
     const startState = EditorState.create({
       doc: "# Write your Python code here",
-      extensions: [basicSetup, python(), ls],
+      extensions: [basicSetup, ls],
     });
 
     const view = new EditorView({
