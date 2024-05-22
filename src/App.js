@@ -5,6 +5,7 @@ import { languageServer } from "codemirror-languageserver";
 import { basicSetup } from "codemirror";
 import { python } from "@codemirror/lang-python";
 import { lintGutter } from "@codemirror/lint";
+import { indentationMarkers } from "@replit/codemirror-indentation-markers";
 
 function App() {
   const editor = useRef(null);
@@ -21,7 +22,13 @@ function App() {
 
     const startState = EditorState.create({
       doc: "# Write your Python code here",
-      extensions: [basicSetup, ls, python(), lintGutter()],
+      extensions: [
+        basicSetup,
+        ls,
+        python(),
+        lintGutter(),
+        indentationMarkers(),
+      ],
     });
 
     const view = new EditorView({
